@@ -16,9 +16,12 @@ class Fish {
   }
 
   display() {
+    // Body
     noStroke();
     fill(255, 191, 0);
     ellipse(this.position.x, this.position.y, this.width, this.height);
+
+    // Tail
     triangle(
       this.position.x - this.width / 2 + 10,
       this.position.y,
@@ -27,32 +30,14 @@ class Fish {
       this.position.x - this.width * 0.75,
       this.position.y - this.height / 3
     );
-    fill(255, 191, 0);
-    triangle(
-      this.position.x + this.width / 2 + 10,
-      this.position.y - this.height / 12,
-      this.position.x + this.width / 2 - 2,
-      this.position.y + this.height / 8,
-      this.position.x + this.width / 2 - 2,
-      this.position.y - this.height / 8
-    );
-    triangle(
-      this.position.x + this.width / 2 + 10,
-      this.position.y - this.height / 12 + 18,
-      this.position.x + this.width / 2 - 10,
-      this.position.y + this.height / 8 + 10,
-      this.position.x + this.width / 2 - 12,
-      this.position.y - this.height / 8 + 10
-    );
+
+    // Eye
     fill(255, 255, 255);
-    ellipse(
-      this.position.x + this.width / 2 - 10,
-      this.position.y - 11,
-      15,
-      20
-    );
+    circle(this.position.x + this.width / 2 - 10, this.position.y - 10, 20);
+
+    // Pupil
     fill(0, 0, 0);
-    ellipse(this.position.x + this.width / 2 - 7, this.position.y - 10, 6, 6);
+    circle(this.position.x + this.width / 2 - 10, this.position.y - 10, 8);
   }
 
   getMouthPosition() {
