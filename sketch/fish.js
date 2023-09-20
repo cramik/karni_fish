@@ -3,6 +3,7 @@ class Fish {
     this.position = position.copy();
     this.width = 100;
     this.height = 60;
+    this.direction = 1;
   }
 
   run() {
@@ -11,16 +12,36 @@ class Fish {
   }
 
   swim() {
-    this.position.x += random(-1, 1);
-    this.position.y += random(-1, 1);
+    if (this.direction==1) {
+      if (this.position.y==width*(3/4)) {
+        this.direction=-1
+      }
+      else {
+        this.position.y+=.5
+      }
+    }
+    else if (this.direction==-1){
+      if (this.position.y==width/4) {
+        this.direction=1;
+      }
+      else {
+        this.position.y-=.5
+      }
+    }
   }
 
   display() {
-    // Body
     noStroke();
-    fill(255, 191, 0);
+    // Name
+    fill(0,0,0);
+    text("cramik",this.position.x-20,this.position.y-40);
+
+    // Body
+    
+    fill(255, 129, 50);
     ellipse(this.position.x, this.position.y, this.width, this.height);
 
+    
     // Tail
     triangle(
       this.position.x - this.width / 2 + 10,
